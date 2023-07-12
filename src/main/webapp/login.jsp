@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>		<!-- 지시자 -->
-<%! %>							<!-- 선언부 (잘 안쓰임!) -->
-<% %>							<!-- Scriptlet -->
-<%= %>							<!-- 표현식 -->
+	pageEncoding="UTF-8"%>
+<%@ include file="/include/common.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<jsp:include page="/include/header.jsp" />
+	로그인 페이지
 </body>
 </html>

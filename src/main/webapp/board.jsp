@@ -1,6 +1,7 @@
 <%@page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/include/common.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,14 +31,14 @@
 		<%
 		while (rs.next()) {
 		%>
-		
+
 		<%="<tr>"%>
 		<%="<td>" + rs.getInt("BI_NuM") + "</td>"%>
 		<%="<td>" + rs.getString("BI_TITLE") + "</td>"%>
 		<%="<td>" + rs.getString("BI_WRITER") + "</td>"%>
 		<%="<td>" + rs.getString("BI_CNT") + "</td>"%>
 		<%="</tr>"%>
-		
+
 		<%
 		}
 		%>

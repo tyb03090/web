@@ -4,6 +4,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/include/common.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,13 +34,13 @@
 		<%
 		while (rs.next()) {
 		%>
-		
-		<%="<tr>" %>
-		<%="<td>" + rs.getInt("G_NUM") + "</td>" %>
-		<%="<td>" + rs.getString("G_NAME") + "</td>" %>
-		<%="<td>" + rs.getInt("G_PRICE") + "</td>" %>
-		<%="</tr>" %>
-		
+
+		<%="<tr>"%>
+		<%="<td>" + rs.getInt("G_NUM") + "</td>"%>
+		<%="<td>" + rs.getString("G_NAME") + "</td>"%>
+		<%="<td>" + rs.getInt("G_PRICE") + "</td>"%>
+		<%="</tr>"%>
+
 		<%
 		}
 		%>
