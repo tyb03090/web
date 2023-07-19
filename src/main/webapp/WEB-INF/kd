@@ -1,0 +1,105 @@
+-- --------------------------------------------------------
+-- 호스트:                          localhost
+-- 서버 버전:                        11.0.2-MariaDB - mariadb.org binary distribution
+-- 서버 OS:                        Win64
+-- HeidiSQL 버전:                  12.3.0.6589
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+-- kd 데이터베이스 구조 내보내기
+CREATE DATABASE IF NOT EXISTS `kd` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `kd`;
+
+-- 테이블 kd.board_info 구조 내보내기
+CREATE TABLE IF NOT EXISTS `board_info` (
+  `BI_NUM` int(11) NOT NULL AUTO_INCREMENT,
+  `BI_TITLE` varchar(100) NOT NULL,
+  `BI_CONTENT` text NOT NULL,
+  `BI_WRITER` varchar(30) NOT NULL,
+  `BI_CREDAT` timestamp NOT NULL,
+  `BI_CNT` int(11) NOT NULL,
+  PRIMARY KEY (`BI_NUM`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 테이블 데이터 kd.board_info:~9 rows (대략적) 내보내기
+INSERT INTO `board_info` (`BI_NUM`, `BI_TITLE`, `BI_CONTENT`, `BI_WRITER`, `BI_CREDAT`, `BI_CNT`) VALUES
+	(1, '첫번째 게시물', '냉무', '글쓴이', '2023-07-10 06:09:25', 0),
+	(2, '첫번째 게시물', '냉무', '글쓴이', '2023-07-13 08:52:03', 0),
+	(3, '두번째 게시물', '냉무', '글쓴이', '2023-07-13 08:52:20', 0),
+	(4, '오늘하루', '그지같다.', '김용준', '2023-07-14 01:29:01', 1),
+	(5, '배 고프다', '점심 맛있게 먹어야징~', 'null', '2023-07-14 03:06:30', 0),
+	(6, '아니 왜', '작성자가 null 인거야;;\r\n도대체 왜;;;;;;;;\r\n\r\n앙 기무링~', '김용준', '2023-07-14 03:08:51', 0),
+	(7, '오늘하루', '빨리 지나간다', '김용준', '2023-07-14 03:10:31', 0),
+	(8, '왜왜오애ㅗ애ㅗ애ㅗ애ㅓ', '오애애애애애애애애애앵\r\n\r\n공습경보! 공습경보!', '김용준', '2023-07-14 03:12:28', 0),
+	(9, '123', 'qsdz', 'qq', '2023-07-14 05:04:06', 0),
+	(10, 'qq', 'ddff', 'zz', '2023-07-14 05:05:26', 0);
+
+-- 테이블 kd.brand_list 구조 내보내기
+CREATE TABLE IF NOT EXISTS `brand_list` (
+  `BL_NUM` int(11) NOT NULL AUTO_INCREMENT,
+  `BL_BRAND` varchar(100) DEFAULT NULL,
+  `BL_TYPE` varchar(100) DEFAULT NULL,
+  `BL_COUNTRY` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`BL_NUM`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 테이블 데이터 kd.brand_list:~0 rows (대략적) 내보내기
+
+-- 테이블 kd.game 구조 내보내기
+CREATE TABLE IF NOT EXISTS `game` (
+  `G_NUM` int(11) NOT NULL AUTO_INCREMENT,
+  `G_NAME` varchar(30) NOT NULL,
+  `G_PRICE` varchar(30) NOT NULL,
+  PRIMARY KEY (`G_NUM`),
+  UNIQUE KEY `G_NAME` (`G_NAME`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 테이블 데이터 kd.game:~6 rows (대략적) 내보내기
+INSERT INTO `game` (`G_NUM`, `G_NAME`, `G_PRICE`) VALUES
+	(1, 'OVERWATCH', '25000'),
+	(4, 'CALAMITY', '10500'),
+	(5, 'RAFT', '20500'),
+	(6, 'LoL', 'free'),
+	(7, 'StarCraft', '25000'),
+	(8, 'LOSTARK', 'free'),
+	(9, 'Stardew Valley', '33500');
+
+-- 테이블 kd.user_info 구조 내보내기
+CREATE TABLE IF NOT EXISTS `user_info` (
+  `UI_NUM` int(11) NOT NULL AUTO_INCREMENT,
+  `UI_ID` varchar(30) NOT NULL,
+  `UI_PWD` varchar(30) NOT NULL,
+  `UI_NAME` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`UI_NUM`),
+  UNIQUE KEY `UI_ID` (`UI_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 테이블 데이터 kd.user_info:~10 rows (대략적) 내보내기
+INSERT INTO `user_info` (`UI_NUM`, `UI_ID`, `UI_PWD`, `UI_NAME`) VALUES
+	(5, 'TEST1', 'TEST1', '김용준'),
+	(7, 'TEST7', 'TEST7', '연습7'),
+	(8, 'TEST8', 'TEST8', '연습 8'),
+	(10, '', '', ''),
+	(11, 'cs', '1111', '철수'),
+	(12, 'test', '111', '안녕'),
+	(13, '123', '333', '4415'),
+	(14, 'phaka04', 'password04', '김용준'),
+	(16, 'phaka03', 'password04', '김용준'),
+	(17, 'qwe', '123', '4rf'),
+	(22, 'qwt', '123', '4rf'),
+	(23, 'qqq', 'www', 'eee');
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
